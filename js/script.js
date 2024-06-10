@@ -117,13 +117,5 @@
 })(jQuery);
 
 
-document.getElementById('subscriptionForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  
-  const email = document.querySelector('input[name="EMAIL"]').value;
-  const reason = document.querySelector('select[name="reason"]').value;
-  
-  const output = document.getElementById('output');
-  output.innerHTML = `<p><strong>Email:</strong> ${email}</p>
-                      <p><strong>Reason:</strong> ${reason}</p>`;
-});
+
+
