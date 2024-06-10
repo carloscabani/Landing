@@ -381,7 +381,7 @@
             <div class="swiper-slide">
               <div class="product-card position-relative">
                 <div class="image-holder">
-                  <img src="images/product-item1.jpg" alt="product-item" class="img-fluid">
+                  <img src="images/equipacion25.jpg" alt="product-item" class="img-fluid">
                 </div>
                 <div class="cart-concern position-absolute">
                   <div class="cart-button d-flex">
@@ -401,7 +401,7 @@
             <div class="swiper-slide">
               <div class="product-card position-relative">
                 <div class="image-holder">
-                  <img src="images/product-item2.jpg" alt="product-item" class="img-fluid">
+                  <img src="images/equipacion24.jpg" alt="product-item" width="225" height="337" class="img-fluid">
                 </div>
                 <div class="cart-concern position-absolute">
                   <div class="cart-button d-flex">
@@ -421,7 +421,7 @@
             <div class="swiper-slide">
               <div class="product-card position-relative">
                 <div class="image-holder">
-                  <img src="images/product-item3.jpg" alt="product-item" class="img-fluid">
+                  <img src="images/equipacion23.jpg" alt="product-item" class="img-fluid">
                 </div>
                 <div class="cart-concern position-absolute">
                   <div class="cart-button d-flex">
@@ -441,7 +441,7 @@
             <div class="swiper-slide">
               <div class="product-card position-relative">
                 <div class="image-holder">
-                  <img src="images/product-item4.jpg" alt="product-item" class="img-fluid">
+                  <img src="images/equipacion21.jpg" alt="product-item" class="img-fluid">
                 </div>
                 <div class="cart-concern position-absolute">
                   <div class="cart-button d-flex">
@@ -461,7 +461,7 @@
             <div class="swiper-slide">
               <div class="product-card position-relative">
                 <div class="image-holder">
-                  <img src="images/product-item5.jpg" alt="product-item" class="img-fluid">
+                  <img src="images/equipacion20.jpg" alt="product-item" class="img-fluid"> <!-- images/product-item5.jpg --> 
                 </div>
                 <div class="cart-concern position-absolute">
                   <div class="cart-button d-flex">
@@ -1003,10 +1003,10 @@
         formulario.addEventListener('submit', (eventSubmit) => {
             eventSubmit.preventDefault();
 
-            // Mostrar pop-up
+            // Mostramos el pop-up
             alert('¡Listo! Pronto nos comunicaremos contigo.');
 
-            // Recoger los datos del formulario
+            // Se recogen los datos del formulario
             const email = formulario.querySelector('input[name="EMAIL"]').value;
             const reason = formulario.querySelector('select[name="reason"]').value;
 
@@ -1015,7 +1015,7 @@
                 reason: reason
             };
 
-            // Realizar una solicitud HTTP POST con fetch
+            // Se procesa la solicitud HTTP POST con fetch
             fetch('https://proyecto-c96df-default-rtdb.firebaseio.com/clave.json', {
                 method: 'POST',
                 headers: {
