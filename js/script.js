@@ -118,4 +118,53 @@
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  async function obtenerDatos() {
+      const url = 'https://proyecto-c96df-default-rtdb.firebaseio.com/clave.json'; // Reemplaza con la URL real de la API o recurso
+      try {
+          const respuesta = await fetch(url);
+          if (!respuesta.ok) {
+              console.error("Error:", respuesta.status);
+              return;
+          }
+          const datos = await respuesta.json();
+          console.log(datos); // Procesar o mostrar los datos obtenidos
+          actualizarTabla(datos);
+      } catch (error) {
+          console.error("Error al obtener los datos:", error);
+      }
+  }
+
+  function actualizarTabla(datos) {
+      const conteos = {};
+
+      // Contar las razones
+      for (const clave in datos) {
+          const reason = datos[clave].reason;
+          if (conteos[reason]) {
+              conteos[reason]++;
+          } else {
+              conteos[reason] = 1;
+          }
+      }
+
+      const tableBody = document.getElementById('tablebody');
+
+      // Limpiar el contenido previo del tbody
+      tableBody.innerHTML = '';
+
+      // Agregar las filas a la tabla
+      for (const reason in conteos) {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+              <td>${reason}</td>
+              <td>${conteos[reason]}</td>
+          `;
+          tableBody.appendChild(row);
+      }
+  }
+
+  obtenerDatos();
+});
+
 
