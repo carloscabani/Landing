@@ -168,3 +168,47 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const formulario = document.getElementById('subscriptionForm');
+
+  formulario.addEventListener('submit', (eventSubmit) => {
+      eventSubmit.preventDefault();
+
+      // Mostramos el pop-up
+      alert('¡Listo! Pronto nos comunicaremos contigo.');
+
+      // Se recogen los datos del formulario
+      const email = formulario.querySelector('input[name="EMAIL"]').value;
+      const reason = formulario.querySelector('select[name="reason"]').value;
+
+      const formData = {
+          email: email,
+          reason: reason
+      };
+
+      // Se procesa la solicitud HTTP POST con fetch
+      fetch('https://proyecto-c96df-default-rtdb.firebaseio.com/clave.json', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.log('Success:', data);
+          obtenerDatos();
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      })
+      .finally(() => {
+        // Limpiar el formulario
+        formulario.reset();
+
+        // Recargar la página
+        location.reload();
+    });
+  });
+});
+
